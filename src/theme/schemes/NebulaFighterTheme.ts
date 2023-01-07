@@ -1,6 +1,8 @@
 import { alpha, createTheme, darken } from '@mui/material';
 import '@mui/lab/themeAugmentation';
 
+// import i18n from 'src/i18n/i18n';
+
 const themeColors = {
   primary: '#8C7CF0',
   secondary: '#9EA4C1',
@@ -9,7 +11,7 @@ const themeColors = {
   error: '#FF1943',
   info: '#33C2FF',
   black: '#CBCCD2',
-  white: '#111633',
+  white: '#1b1b1b',
   primaryAlt: '#111633',
   trueWhite: '#ffffff'
 };
@@ -35,25 +37,25 @@ const colors = {
   },
   shadows: {
     success:
-      '0px 1px 4px rgba(68, 214, 0, 0.25), 0px 3px 12px 2px rgba(68, 214, 0, 0.35)',
+        '0px 1px 4px rgba(68, 214, 0, 0.25), 0px 3px 12px 2px rgba(68, 214, 0, 0.35)',
     error:
-      '0px 1px 4px rgba(255, 25, 67, 0.25), 0px 3px 12px 2px rgba(255, 25, 67, 0.35)',
+        '0px 1px 4px rgba(255, 25, 67, 0.25), 0px 3px 12px 2px rgba(255, 25, 67, 0.35)',
     info: '0px 1px 4px rgba(51, 194, 255, 0.25), 0px 3px 12px 2px rgba(51, 194, 255, 0.35)',
     primary:
-      '0px 1px 4px rgba(112, 99, 192, 0.25), 0px 3px 12px 2px rgba(112, 99, 192, 0.35)',
+        '0px 1px 4px rgba(112, 99, 192, 0.25), 0px 3px 12px 2px rgba(112, 99, 192, 0.35)',
     warning:
-      '0px 1px 4px rgba(255, 163, 25, 0.25), 0px 3px 12px 2px rgba(255, 163, 25, 0.35)',
+        '0px 1px 4px rgba(255, 163, 25, 0.25), 0px 3px 12px 2px rgba(255, 163, 25, 0.35)',
     card: '0px 0px 2px #6A7199',
     cardSm: '0px 0px 2px #6A7199',
     cardLg:
-      '0 0rem 14rem 0 rgb(255 255 255 / 20%), 0 0.8rem 2.3rem rgb(111 130 156 / 3%), 0 0.2rem 0.7rem rgb(17 29 57 / 15%)'
+        '0 0rem 14rem 0 rgb(255 255 255 / 20%), 0 0.8rem 2.3rem rgb(111 130 156 / 3%), 0 0.2rem 0.7rem rgb(17 29 57 / 15%)'
   },
   layout: {
     general: {
-      bodyBg: '#070C27'
+      bodyBg: '#000'
     },
     sidebar: {
-      background: themeColors.primaryAlt,
+      background: '#0b0b0b',
       textColor: themeColors.secondary,
       dividerBg: '#272C48',
       menuItemColor: '#9EA4C1',
@@ -238,12 +240,12 @@ export const NebulaFighterTheme = createTheme({
     menuItemIconColor: colors.layout.sidebar.menuItemIconColor,
     menuItemIconColorActive: colors.layout.sidebar.menuItemIconColorActive,
     menuItemHeadingColor: colors.layout.sidebar.menuItemHeadingColor,
-    boxShadow: '1px 0 0 #272C48',
-    width: '290px'
+    boxShadow: '1px 0 0 #1a1a1a',
+    width: '310px'
   },
   header: {
     height: '80px',
-    background: themeColors.primaryAlt,
+    background: 'rgba(0,0,0,0.4)',
     boxShadow: '0px 1px 0px #272C48',
     textColor: colors.secondary.main
   },
@@ -394,10 +396,10 @@ export const NebulaFighterTheme = createTheme({
         },
         '#nprogress .peg': {
           boxShadow:
-            '0 0 15px ' +
-            colors.primary.lighter +
-            ', 0 0 8px' +
-            colors.primary.light
+              '0 0 15px ' +
+              colors.primary.lighter +
+              ', 0 0 8px' +
+              colors.primary.light
         },
         ':root': {
           '--swiper-theme-color': colors.primary.main,
@@ -408,6 +410,26 @@ export const NebulaFighterTheme = createTheme({
           color: colors.alpha.black[100],
           borderRadius: 4,
           padding: 4
+        },
+        '@keyframes pulse': {
+          '0%': {
+            transform: 'scale(.75)'
+          },
+          '20%': {
+            transform: 'scale(1.1)'
+          },
+          '40%': {
+            transform: 'scale(.75)'
+          },
+          '60%': {
+            transform: 'scale(1.05)'
+          },
+          '80%': {
+            transform: 'scale(.75)'
+          },
+          '100%': {
+            transform: 'scale(.75)'
+          }
         },
         '@keyframes ripple': {
           '0%': {
@@ -912,9 +934,9 @@ export const NebulaFighterTheme = createTheme({
         },
         root: {
           '.MuiAutocomplete-inputRoot.MuiOutlinedInput-root .MuiAutocomplete-endAdornment':
-            {
-              right: 14
-            }
+              {
+                right: 14
+              }
         },
         clearIndicator: {
           background: alpha(colors.error.lighter, 0.2),
@@ -1068,7 +1090,7 @@ export const NebulaFighterTheme = createTheme({
             position: 'absolute',
             padding: 6,
             transition:
-              'left 150ms cubic-bezier(0.4, 0, 0.2, 1) 0ms,transform 150ms cubic-bezier(0.4, 0, 0.2, 1) 0ms'
+                'left 150ms cubic-bezier(0.4, 0, 0.2, 1) 0ms,transform 150ms cubic-bezier(0.4, 0, 0.2, 1) 0ms'
           },
           '& .MuiIconButton-root': {
             borderRadius: 100
@@ -1080,10 +1102,10 @@ export const NebulaFighterTheme = createTheme({
         thumb: {
           border: '1px solid ' + colors.alpha.black[30],
           boxShadow:
-            '0px 9px 14px ' +
-            colors.alpha.black[10] +
-            ', 0px 2px 2px ' +
-            colors.alpha.black[10]
+              '0px 9px 14px ' +
+              colors.alpha.black[10] +
+              ', 0px 2px 2px ' +
+              colors.alpha.black[10]
         },
         track: {
           backgroundColor: colors.alpha.black[5],
@@ -1151,7 +1173,7 @@ export const NebulaFighterTheme = createTheme({
   },
   typography: {
     fontFamily:
-      '"Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji"',
+        '"Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji"',
     h1: {
       fontWeight: 700,
       fontSize: 35
