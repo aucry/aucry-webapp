@@ -9,13 +9,13 @@ import {
   styled,
   Divider,
   useTheme,
-  Button,
   lighten,
-  darken,
-  Tooltip
+  darken
 } from '@mui/material';
 
+import SidebarTopSection from './SidebarTopSection';
 import SidebarMenu from './SidebarMenu';
+import SidebarFooter from './SidebarFooter';
 import Logo from 'src/components/LogoSign';
 
 const SidebarWrapper = styled(Box)(
@@ -26,7 +26,15 @@ const SidebarWrapper = styled(Box)(
         position: relative;
         z-index: 7;
         height: 100%;
-        padding-bottom: 68px;
+        padding-bottom: 61px;
+        transform: skewX(-3deg);
+        margin-left: -28px;
+        
+        > * {
+          transform: skewX(5deg);
+          margin-left: 40px;
+          width:90% !important;
+        }
 `
 );
 
@@ -65,10 +73,10 @@ function Sidebar() {
               <Logo />
             </Box>
           </Box>
-          <Divider
+          <Divider style={{"visibility":"hidden"}}
             sx={{
-              mt: theme.spacing(3),
-              mx: theme.spacing(2),
+              my: theme.spacing(2),
+              mx: theme.spacing(1),
               background: theme.colors.alpha.trueWhite[10]
             }}
           />
@@ -79,19 +87,7 @@ function Sidebar() {
             background: theme.colors.alpha.trueWhite[10]
           }}
         />
-        <Box p={2}>
-          <Button
-            href="https://bloomui.com"
-            target="_blank"
-            rel="noopener noreferrer"
-            variant="contained"
-            color="success"
-            size="small"
-            fullWidth
-          >
-            Upgrade to PRO
-          </Button>
-        </Box>
+        <SidebarFooter />
       </SidebarWrapper>
       <Drawer
         sx={{
@@ -124,13 +120,22 @@ function Sidebar() {
             </Box>
             <Divider
               sx={{
-                mt: theme.spacing(3),
+                my: theme.spacing(3),
+                mx: theme.spacing(2),
+                background: theme.colors.alpha.trueWhite[10]
+              }}
+            />
+            <SidebarTopSection />
+            <Divider
+              sx={{
+                my: theme.spacing(3),
                 mx: theme.spacing(2),
                 background: theme.colors.alpha.trueWhite[10]
               }}
             />
             <SidebarMenu />
           </Scrollbar>
+          <SidebarFooter />
         </SidebarWrapper>
       </Drawer>
     </>
