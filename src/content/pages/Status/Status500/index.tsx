@@ -2,7 +2,6 @@ import { useState } from 'react';
 import {
   Box,
   Typography,
-  Hidden,
   Container,
   Button,
   Grid,
@@ -11,6 +10,8 @@ import {
 import { Helmet } from 'react-helmet-async';
 import RefreshTwoToneIcon from '@mui/icons-material/RefreshTwoTone';
 import LoadingButton from '@mui/lab/LoadingButton';
+
+import { useTranslation } from 'react-i18next';
 
 const GridWrapper = styled(Grid)(
   ({ theme }) => `
@@ -32,17 +33,19 @@ const MainContent = styled(Box)(
 
 const TypographyPrimary = styled(Typography)(
   ({ theme }) => `
-      color: ${theme.colors.alpha.white[100]};
+      color: ${theme.colors.alpha.trueWhite[100]};
 `
 );
 
 const TypographySecondary = styled(Typography)(
   ({ theme }) => `
-      color: ${theme.colors.alpha.white[70]};
+      color: ${theme.colors.alpha.trueWhite[70]};
 `
 );
 
 function Status500() {
+  const { t }: { t: any } = useTranslation();
+
   const [pending, setPending] = useState(false);
   function handleClick() {
     setPending(true);
@@ -56,7 +59,9 @@ function Status500() {
       <MainContent>
         <Grid
           container
-          sx={{ height: '100%' }}
+          sx={{
+            height: '100%'
+          }}
           alignItems="stretch"
           spacing={0}
         >
@@ -75,17 +80,25 @@ function Status500() {
                   height={260}
                   src="/static/images/status/500.svg"
                 />
-                <Typography variant="h2" sx={{ my: 2 }}>
-                  There was an error, please try again later
+                <Typography
+                  variant="h2"
+                  sx={{
+                    my: 2
+                  }}
+                >
+                  {t('There was an error, please try again later')}
                 </Typography>
                 <Typography
                   variant="h4"
                   color="text.secondary"
                   fontWeight="normal"
-                  sx={{ mb: 4 }}
+                  sx={{
+                    mb: 4
+                  }}
                 >
-                  The server encountered an internal error and was not able to
-                  complete your request
+                  {t(
+                    'The server encountered an internal error and was not able to complete your request'
+                  )}
                 </Typography>
                 <LoadingButton
                   onClick={handleClick}
@@ -94,44 +107,58 @@ function Status500() {
                   color="primary"
                   startIcon={<RefreshTwoToneIcon />}
                 >
-                  Refresh view
+                  {t('Refresh view')}
                 </LoadingButton>
-                <Button href="/overview" variant="contained" sx={{ ml: 1 }}>
-                  Go back
+                <Button
+                  href="/overview"
+                  variant="contained"
+                  sx={{
+                    ml: 1
+                  }}
+                >
+                  {t('Go back')}
                 </Button>
               </Box>
             </Container>
           </Grid>
-          <Hidden mdDown>
-            <GridWrapper
-              xs={12}
-              md={6}
-              alignItems="center"
-              display="flex"
-              justifyContent="center"
-              item
-            >
-              <Container maxWidth="sm">
-                <Box textAlign="center">
-                  <TypographyPrimary variant="h1" sx={{ my: 2 }}>
-                    Tokyo Free Black React Typescript Admin Dashboard
-                  </TypographyPrimary>
-                  <TypographySecondary
-                    variant="h4"
-                    fontWeight="normal"
-                    sx={{ mb: 4 }}
-                  >
-                    High performance React template built with lots of powerful
-                    Material-UI components across multiple product niches for
-                    fast &amp; perfect apps development processes.
-                  </TypographySecondary>
-                  <Button href="/overview" size="large" variant="contained">
-                    Overview
-                  </Button>
-                </Box>
-              </Container>
-            </GridWrapper>
-          </Hidden>
+          <GridWrapper
+            sx={{
+              display: { xs: 'none', md: 'flex' }
+            }}
+            xs={12}
+            md={6}
+            alignItems="center"
+            display="flex"
+            justifyContent="center"
+            item
+          >
+            <Container maxWidth="sm">
+              <Box textAlign="center">
+                <TypographyPrimary
+                  variant="h1"
+                  sx={{
+                    my: 2
+                  }}
+                >
+                  {t('Tokyo Black React Typescript Admin Dashboard')}
+                </TypographyPrimary>
+                <TypographySecondary
+                  variant="h4"
+                  fontWeight="normal"
+                  sx={{
+                    mb: 4
+                  }}
+                >
+                  {t(
+                    'High performance React template built with lots of powerful MUI (Material-UI) components across multiple product niches for fast & perfect apps development processes.'
+                  )}
+                </TypographySecondary>
+                <Button href="/overview" size="large" variant="contained">
+                  {t('Overview')}
+                </Button>
+              </Box>
+            </Container>
+          </GridWrapper>
         </Grid>
       </MainContent>
     </>
