@@ -1,0 +1,8 @@
+.selected-avatar {
+    border: 5px solid rebeccapurple;
+    box-sizing: border-box;
+    border-radius: 78px;
+}
+.avatar {
+    cursor: pointer;
+}
