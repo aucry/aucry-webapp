@@ -16,6 +16,17 @@ function App() {
         <CssBaseline />
         {content}
       </LocalizationProvider>
+
+        <video autoPlay loop muted  style={{
+            "height": "100%",
+            "width": "auto",
+            "float": "left",
+            "bottom": "-40%",
+            "position": "fixed",
+            "zIndex": "-1"
+        }}>
+            <source src="/static/background.mp4" type='video/mp4' />
+        </video>
     </ThemeProvider>
   );
 }
